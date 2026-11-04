@@ -172,6 +172,7 @@ a { color: inherit; text-decoration: none; }
   height: 100%;
   object-fit: fill;                        /* logo fills the squircle edge-to-edge */
   padding: 0;
+  border-radius: inherit;                  /* clip the image to the squircle outline */
   transform: translateZ(34px);
   -webkit-user-drag: none;
   user-select: none;

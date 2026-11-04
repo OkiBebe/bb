@@ -5,19 +5,22 @@
 (function () {
   'use strict';
 
-  var CATALOG_JSON_URL = 'data/catalog.json';
-
   // Root of the site, derived from this script's own URL (works on file:// too).
   var scriptSrc = (document.currentScript && document.currentScript.src) || '';
   var SITE_ROOT = scriptSrc
     ? new URL('../', scriptSrc).href
     : new URL('../', window.location.href).href;
 
-  // Base used for shareable links (WhatsApp messages, og:url). Falls back to the
-  // live domain when the site is being previewed from disk.
+  // Catalog endpoint, resolved from the site root (not the current page) so
+  // subfolder hosting like GitHub Pages /bb/ still finds the JSON.
+  var CATALOG_JSON_URL = new URL('data/catalog.json', SITE_ROOT).href;
+
+  // Base used for shareable links (WhatsApp messages, og:url). Derived from the
+  // site's own location so subfolder hosting (e.g. GitHub Pages /bb/) works.
+  // Falls back to the live domain only when previewed from disk.
   var SHARE_BASE =
     window.location.protocol === 'http:' || window.location.protocol === 'https:'
-      ? window.location.origin + '/'
+      ? SITE_ROOT
       : 'https://bold-n-beautiful.com/';
 
   var catalogPromise = null;
