@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Bold &amp; Beautiful</title>
+  <meta name="description" content="Shop purses, clothes, shoes and accessories from Bold &amp; Beautiful. Order directly via WhatsApp." />
+  <link rel="icon" href="../images/Howell.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bold &amp; Beautiful" />
+  <meta property="og:title" content="Shop — Bold &amp; Beautiful" />
+  <meta property="og:description" content="Purses, clothes, shoes and accessories. Order directly via WhatsApp." />
+  <meta property="og:image" content="../images/Howell.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../design-assets/design.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="../index.html">Bold <em>&amp;</em> Beautiful</a>
+    <nav class="site-nav">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link active" href="index.html">Shop</a>
+      <a class="nav-link" href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <div class="shop-shell">
+
+    <aside class="filters" id="filters">
+      <button class="btn filters-toggle" id="filtersToggle" type="button">Hide Filters</button>
+
+      <div class="filter-group">
+        <div class="filter-title">Categories</div>
+        <div id="catFilters"><!-- built by shop.js --></div>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-title">Price</div>
+        <input type="range" class="price-slider" id="priceSlider" aria-label="Maximum price" />
+        <div class="price-readout"><span id="priceReadout">Up to $250</span></div>
+        <div class="chips" id="priceChips"></div>
+      </div>
+
+      <div class="filters-actions">
+        <button class="clear" id="clearFilters" type="button">Clear Filters</button>
+      </div>
+    </aside>
+
+    <section class="shop-main">
+      <div class="shop-head">
+        <h1>Shop</h1>
+        <span class="count" id="resultCount">0 items</span>
+      </div>
+
+      <div class="grid" id="grid"><!-- product cards --></div>
+
+      <div class="empty-state" id="emptyState" style="display:none">
+        <h2>Nothing matches those filters</h2>
+        <p>Try widening the price range or clearing the categories.</p>
+        <button class="btn" id="emptyClear" type="button" style="margin-top:18px">Clear Filters</button>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="site-footer">
+    <span class="foot-brand">Bold &amp; Beautiful</span>
+    <nav class="foot-nav">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Shop</a>
+      <a href="../about.html">About</a>
+    </nav>
+    <span class="foot-meta">&copy; 2026 Bold &amp; Beautiful</span>
+  </footer>
+
+  <script src="../js/catalog-data.js"></script>
+  <script src="../js/catalog.js"></script>
+  <script src="../js/shop.js"></script>
+  <script>
+    document.getElementById('emptyClear').addEventListener('click', function () {
+      document.getElementById('clearFilters').click();
+    });
+  </script>
+</body>
+</html>
